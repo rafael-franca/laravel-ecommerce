@@ -26,7 +26,7 @@ Route::name('manager.')
         Route::get('/', 'ProductController@index')
             ->name('list_products');
     
-        Route::group(['prefix' => 'products'], function () {
+        Route::prefix('products')->group(function () {
             Route::get('/drafts', 'ProductController@drafts')
                 ->name('list_drafts')
                 ->middleware('can:drafts,App\Product');
